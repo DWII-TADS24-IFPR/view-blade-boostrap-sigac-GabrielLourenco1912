@@ -6,17 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Nivel extends Model
+class Eixo extends Model
 {
     use SoftDeletes;
-
-    protected $table = 'nivels';
+    protected $table = 'eixos';
     protected $fillable = [
         'nome'
     ];
-
     public function curso()
     {
-        return $this->hasMany(Curso::class);
+        return $this-> hasMany(Curso::class);
     }
+
 }
