@@ -34,4 +34,8 @@ class Curso extends Model
     {
         return $this -> hasMany(Categoria::class);
     }
+    public function turma()
+    {
+        return $this->belongsTo(Turma::class);
+    }
 }
