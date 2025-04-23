@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('declaracaos', function (Blueprint $table) {
             $table->id();
             $table->string('hash');
-            $table->datatime('data') -> nullable();
+            $table->datetime('data') -> nullable();
             $table->unsignedBigInteger('aluno_id');
             $table->foreign('aluno_id')->references('id')->on('alunos')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('comprovante_id') -> nullable();

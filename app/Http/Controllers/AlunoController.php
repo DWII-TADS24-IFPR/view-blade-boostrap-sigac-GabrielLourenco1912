@@ -12,7 +12,8 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        //
+        $alunos = Aluno::all();
+        return view('alunos.index', compact('alunos'));
     }
 
     /**
@@ -20,7 +21,7 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        //
+        return view('alunos.create');
     }
 
     /**
@@ -28,7 +29,21 @@ class AlunoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'nome' => 'required|string|max:255',
+            'email' => 'required|email|unique:alunos',
+            'idade' => 'required|integer|min:1',
+            'senha' => 'required|string|min:6|confirmed',
+            'user_id' => 'required|integer',
+            'curso_id' => 'required|integer',
+            'turma_id' => 'required|integer',
+        ]);
+
+        $data['senha'] = Hash::make($data['senha']);
+
+        $aluno = Aluno::create($data);
+
+        return redirect()->route('alunos.index')->with('success', 'Aluno criado com sucesso!');
     }
 
     /**
