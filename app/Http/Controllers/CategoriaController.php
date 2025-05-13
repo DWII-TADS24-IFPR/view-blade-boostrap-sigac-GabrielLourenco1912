@@ -12,7 +12,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        $categorias = Categoria::all();
+        return view('categorias.index', compact('categorias'));
     }
 
     /**
@@ -20,7 +21,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('categorias.create');
     }
 
     /**
@@ -28,7 +29,16 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'nome' => 'required|string|max:255',
+            'descricao' => 'required|string',
+            'maximo-horas' => 'required|integer|min:1',
+            'curso-id' => 'required|integer|min:1',
+        ]);
+
+        $categoria = Categoria::create($data);
+
+        return redirect()->route('categorias.index')->with('success', 'Categoria criada com sucesso!');
     }
 
     /**

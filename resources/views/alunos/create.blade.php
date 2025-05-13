@@ -34,6 +34,16 @@
             </div>
 
             <div class="mb-3">
+                <label for="curso" class="form-label">Curso</label>
+                <input type="text" name="curso" id="curso" class="form-control" value="{{ old('curso') }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="turma" class="form-label">Turma</label>
+                <input type="text" name="turma" id="turma" class="form-control" value="{{ old('turma') }}" required>
+            </div>
+
+            <div class="mb-3">
                 <label for="senha" class="form-label">Senha</label>
                 <input type="password" name="senha" id="senha" class="form-control" required>
             </div>
