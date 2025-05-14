@@ -15,7 +15,7 @@ Criar **interfaces completas com Blade (Laravel)** e **Bootstrap** para todos os
 - [ ] Nível  
 - [ ] Turma  
 
----
+--
 
 ## ✅ Requisitos Obrigatórios
 
